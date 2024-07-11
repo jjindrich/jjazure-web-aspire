@@ -13,4 +13,9 @@
     <PackageReference Include="Aspire.Hosting.AppHost" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\jjwebaspire.api\jjwebaspire.Api.csproj" />
+    <ProjectReference Include="..\jjwebaspire.web\jjwebaspire.Web.csproj" />
+  </ItemGroup>
+
 </Project>
