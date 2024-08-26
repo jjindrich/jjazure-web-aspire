@@ -1,8 +1,8 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-var apiService = builder.AddProject<Projects.jjwebaspire_api>("jjapi");
+var apiService = builder.AddProject<Projects.jjwebaspire_Api>("jjapi");
 
-builder.AddProject<Projects.jjwebaspire_web>("jjweb")
+builder.AddProject<Projects.jjwebaspire_Web>("jjweb")
     .WithExternalHttpEndpoints()
     .WithReference(apiService);
 
