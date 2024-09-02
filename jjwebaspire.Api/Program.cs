@@ -20,6 +20,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Values API
+app.MapGet("/api/values", () => new[] { "value1", "value2", "value3" });
+app.MapGet("/api/values/{id}", (int id) => "value1");
+
+// WeatherForecast API
 var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
