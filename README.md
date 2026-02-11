@@ -17,9 +17,24 @@ https://aspire.dev/deployment/overview/
 ### Deploying to Azure ContainerApps
 
 Create Publish profile in Visual Studio. It will create new Azure ContainerApps resource. It uses azd cli to deploy the application.
+Creates definition in .azure folder and azure.yaml file.
+
+### Deploy with Azd
+
+```
+azd env new jjwebaspire-dev
+azd env set AZURE_SUBSCRIPTION_ID <your-subscription-id>
+azd env set AZURE_LOCATION swedencentral
+azd env set AZURE_CONTAINER_APPS_ENVIRONMENT_NAME <your-existing-env-name>
+azd env set AZURE_CONTAINER_APPS_ENVIRONMENT_RG <your-existing-env-rg>
+
+azd provision
+azd deploy
+```
 
 ### Configure GitHub Actions
 
+https://github.com/dotnet/docs-aspire/blob/main/docs/deployment/azd/aca-deployment-github-actions.md
 TODO: configure github
 
 ### Deploying to Kubernetes
