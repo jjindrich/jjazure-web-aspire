@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../README.md" />
+  </Folder>
+  <Project Path="jjwebaspire.ApiService/jjwebaspire.ApiService.csproj" />
+  <Project Path="jjwebaspire.AppHost/jjwebaspire.AppHost.csproj" />
+  <Project Path="jjwebaspire.ServiceDefaults/jjwebaspire.ServiceDefaults.csproj" />
+  <Project Path="jjwebaspire.Web/jjwebaspire.Web.csproj" />
+</Solution>

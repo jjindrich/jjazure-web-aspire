@@ -1,6 +1,0 @@
-@jjwebaspire.api_HostAddress = http://localhost:5147
-
-GET {{jjwebaspire.api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

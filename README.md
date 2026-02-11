@@ -1,20 +1,26 @@
 # jjazure-web-aspire
 JJ Website using dotnet Aspire to run distributed applications
 
+About Aspire: https://aspire.dev/
+
+
 ## Development
 
-Reference API https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/overview
+### Using CosmosDB
 
-```powershell
-dotnet tool install -g Microsoft.dotnet-openapi --prerelease
-
-dotnet-openapi add url http://localhost:5147/swagger/v1/swagger.json
-```
-
+TODO: https://github.com/jjindrich/jjweb-aspire-tracing
 
 ## Deployment
 
-https://learn.microsoft.com/en-us/dotnet/aspire/deployment/overview
+https://aspire.dev/deployment/overview/
+
+### Deploying to Azure ContainerApps
+
+Create Publish profile in Visual Studio. It will create new Azure ContainerApps resource. It uses azd cli to deploy the application.
+
+### Configure GitHub Actions
+
+TODO: configure github
 
 ### Deploying to Kubernetes
 
@@ -28,6 +34,14 @@ aspirate generate
 aspirate run
 ```
 
-### Deploying to Azure ContainerApps
+## Monitoring
 
-Create Publish profile in Visual Studio. It will create new Azure ContainerApps resource. It uses azd cli to deploy the application.
+### Aspire Dashboard
+
+Data stored in-memory - https://aspire.dev/fundamentals/telemetry/
+
+### Application Insights
+
+Use OpenTelemetry with Azure Monitor https://learn.microsoft.com/en-us/dotnet/aspire/deployment/aspire-deploy/application-insights#use-the-azure-monitor-distro
+
+TODO: set OTEL exporter to Application Insights
