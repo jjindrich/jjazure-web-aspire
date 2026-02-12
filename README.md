@@ -22,6 +22,9 @@ Creates definition in .azure folder and azure.yaml file.
 
 ### Deploy with Azd
 
+It stores data into .azure folder. Azure resources are tagged with azd-env-name=your_environment_name.
+
+This will deploy new Azure environment and fill .env file
 ```
 azd env new jjwebaspire-dev
 azd env set AZURE_SUBSCRIPTION_ID <your-subscription-id>
@@ -30,6 +33,16 @@ azd env set AZURE_CONTAINER_APPS_ENVIRONMENT_NAME <your-existing-env-name>
 azd env set AZURE_CONTAINER_APPS_ENVIRONMENT_RG <your-existing-env-rg>
 
 azd provision
+azd deploy
+```
+
+If you want to get information about Azure environment (fill .env file) and run deployment
+```
+azd env new jjwebaspire-dev
+azd env set AZURE_SUBSCRIPTION_ID <your-subscription-id>
+azd env set AZURE_LOCATION swedencentral
+
+azd env refresh
 azd deploy
 ```
 
