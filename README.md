@@ -3,12 +3,13 @@ JJ Website using dotnet Aspire to run distributed applications
 
 About Aspire: https://aspire.dev/
 
-
 ## Development
 
 ### Using CosmosDB
 
-TODO: https://github.com/jjindrich/jjweb-aspire-tracing
+https://aspire.dev/integrations/cloud/azure/azure-cosmos-db/
+
+It creates CosmosDB resource in Azure. You need setup permissions for you as developer.
 
 ## Deployment
 

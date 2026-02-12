@@ -1,0 +1,65 @@
+﻿@page "/cosmos"
+@attribute [StreamRendering(true)]
+
+@using jjwebaspire.Web.Data
+@using Microsoft.EntityFrameworkCore
+
+@inject jjwebaspire.Web.Data.MyDbContext DbContext
+
+<h3>Cosmos</h3>
+
+@if (sampleEntities == null)
+{
+    <p>Loading...</p>
+}
+else if (!sampleEntities.Any())
+{
+    <p>No entities found.</p>
+}
+else
+{
+    <ul>
+        @foreach (var entity in sampleEntities)
+        {
+            <li>[@entity.Id] @entity.Name</li>
+        }
+    </ul>
+}
+
+<h2>Add New SampleEntity</h2>
+<EditForm Model="newSampleEntity" OnValidSubmit="HandleValidSubmit" FormName="addSampleEntityForm">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label for="name">Name:</label>
+        <InputText id="name" @bind-Value="newSampleEntity.Name" />
+    </div>
+
+    <button type="submit">Add</button>
+</EditForm>
+
+@code {
+private List<SampleEntity> sampleEntities;
+    
+[SupplyParameterFromForm]
+private SampleEntity newSampleEntity { get; set; } = new SampleEntity();
+
+    protected override async Task OnInitializedAsync()
+    {
+        sampleEntities = await DbContext.SampleEntities.ToListAsync();
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        newSampleEntity.Id = Guid.NewGuid().ToString(); // Generate a new ID
+        DbContext.SampleEntities.Add(newSampleEntity);
+        await DbContext.SaveChangesAsync();
+
+        // Refresh the list of entities
+        sampleEntities = await DbContext.SampleEntities.ToListAsync();
+
+        // Clear the form
+        newSampleEntity = new SampleEntity();
+    }
+}

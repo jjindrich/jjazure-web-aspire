@@ -1,5 +1,7 @@
 using jjwebaspire.Web;
 using jjwebaspire.Web.Components;
+using jjwebaspire.Web.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,8 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.AddCosmosDbContext<MyDbContext>("cosmos-db", "mydb");
 
 builder.Services.AddOutputCache();
 
@@ -26,6 +30,13 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+}
+
+// Ensure the Cosmos DB collection is created
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<MyDbContext>();
+    await dbContext.Database.EnsureCreatedAsync();
 }
 
 app.UseHttpsRedirection();
