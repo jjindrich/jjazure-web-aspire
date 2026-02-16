@@ -48,8 +48,14 @@ azd deploy
 
 ### Configure GitHub Actions
 
-https://github.com/dotnet/docs-aspire/blob/main/docs/deployment/azd/aca-deployment-github-actions.md
-TODO: configure github
+Docs
+- https://learn.microsoft.com/en-us/dotnet/aspire/deployment/azd/aca-deployment-github-actions
+- https://github.com/dotnet/docs-aspire/blob/main/docs/deployment/azd/aca-deployment-github-actions.md
+
+Run this to configure GitHub Actions for your repository.
+```
+azd pipeline config
+```
 
 ### Deploying to Kubernetes
 
