@@ -43,6 +43,7 @@ azd env set AZURE_SUBSCRIPTION_ID <your-subscription-id>
 azd env set AZURE_LOCATION swedencentral
 
 azd env refresh
+azd env get-values
 azd deploy
 ```
 
