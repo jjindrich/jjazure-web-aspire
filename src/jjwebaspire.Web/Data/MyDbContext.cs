@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace jjwebaspire.Web.Data
 {
@@ -9,12 +10,19 @@ namespace jjwebaspire.Web.Data
         {
         }
 
-        public DbSet<SampleEntity> SampleEntities { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
     }
 
-    public class SampleEntity
+    public class Contact
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
+        public string Id { get; set; } = string.Empty;
+
+        [Required]
+        public string FirstName { get; set; } = string.Empty;
+
+        [Required]
+        public string LastName { get; set; } = string.Empty;
+
+        public string? PhoneNumber { get; set; }
     }
 }
