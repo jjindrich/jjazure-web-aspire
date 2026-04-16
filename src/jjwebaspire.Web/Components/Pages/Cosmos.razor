@@ -21,7 +21,7 @@ else
     <ul>
         @foreach (var entity in sampleEntities)
         {
-            <li>[@entity.Id] @entity.Name - @entity.Description</li>
+            <li>[@entity.Id] @entity.Name@(string.IsNullOrEmpty(entity.Description) ? "" : $" - {entity.Description}")</li>
         }
     </ul>
 }
