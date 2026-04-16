@@ -21,7 +21,7 @@ else
     <ul>
         @foreach (var entity in sampleEntities)
         {
-            <li>[@entity.Id] @entity.Name</li>
+            <li>[@entity.Id] @entity.Name - @entity.Description</li>
         }
     </ul>
 }
@@ -34,6 +34,10 @@ else
     <div>
         <label for="name">Name:</label>
         <InputText id="name" @bind-Value="newSampleEntity.Name" />
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <InputText id="description" @bind-Value="newSampleEntity.Description" />
     </div>
 
     <button type="submit">Add</button>
