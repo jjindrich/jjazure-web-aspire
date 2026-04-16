@@ -21,7 +21,7 @@ else
     <ul>
         @foreach (var entity in sampleEntities)
         {
-            <li>[@entity.Id] @entity.Name@(string.IsNullOrEmpty(entity.Description) ? "" : $" - {entity.Description}")</li>
+            <li>[@entity.Id] @entity.Name@FormatDescriptionSuffix(entity.Description)</li>
         }
     </ul>
 }
@@ -66,4 +66,7 @@ private SampleEntity newSampleEntity { get; set; } = new SampleEntity();
         // Clear the form
         newSampleEntity = new SampleEntity();
     }
+
+    private static string FormatDescriptionSuffix(string? description) =>
+        string.IsNullOrEmpty(description) ? string.Empty : $" - {description}";
 }
